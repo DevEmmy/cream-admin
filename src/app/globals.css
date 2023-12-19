@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+}
+
+.sect {
+  @apply flex flex-col justify-start items-start gap-[12px] font-[600] text-[18px] lg:text-[16px] ls:text-[14px] sm:text-[20px] w-full;
+}
+.inputCont {
+  @apply flex border-[1px] border-[#AAA] rounded-[8px] justify-center items-center p-[1em] w-full;
+}
+.inputCont2 {
+  @apply flex border-[1px] border-[#AAA] rounded-[8px] justify-center items-center px-[16px] py-[12px] w-full;
+}
+.input{
+  @apply border border-none outline-none font-[400] w-full pl-[0.5em];
+}
+.err{
+  @apply text-red-500 text-[0.7rem] sm:text-[0.9rem] font-[400];
+}
+.box{
+  @apply flex justify-center items-center gap-[0.5em] px-[1.5em] py-[1em] sm:py-[0.5em] w-[100%] border-[1px] mt-[1em] border-[#AAA] rounded-[8px] cursor-pointer shadow-md;
+}
+.flexbm {
+  @apply flex justify-between items-center;
+}
+.flexbs {
+  @apply flex justify-between items-start;
+}
+.flexbe {
+  @apply flex justify-between items-end;
+}
+.flexam {
+  @apply flex justify-around items-center;
+}
+.flexmm {
+  @apply flex justify-center items-center;
+}
+.flexem {
+  @apply flex justify-end items-center;
+}
+.flexme {
+  @apply flex justify-center items-end;
+}
+.flexsm {
+  @apply flex justify-start items-center;
+}
+.flexms {
+  @apply flex justify-center items-start;
+}
+.flexss {
+  @apply flex justify-start items-start;
+}
+.flexse {
+  @apply flex justify-start items-end;
+}
+.flexes {
+  @apply flex justify-end items-start;
+}
+
+.cflexbm {
+  @apply flex flex-col justify-between items-center;
+}
+.cflexbs {
+  @apply flex flex-col justify-between items-start;
+}
+.cflexbe {
+  @apply flex justify-between items-end;
+}
+.cflexam {
+  @apply flex flex-col justify-around items-center;
+}
+.cflexmm {
+  @apply flex flex-col justify-center items-center;
+}
+.cflexem {
+  @apply flex flex-col justify-end items-center;
+}
+.cflexme {
+  @apply flex flex-col justify-center items-end;
+}
+.cflexsm {
+  @apply flex flex-col justify-start items-center;
+}
+.cflexms {
+  @apply flex flex-col justify-center items-start;
+}
+.cflexss {
+  @apply flex flex-col justify-start items-start;
+}
+.cflexse {
+  @apply flex flex-col justify-start items-end;
+}
+.cflexes {
+  @apply flex flex-col justify-end items-start;
+}
+
+img{
+  @apply object-cover
+}
