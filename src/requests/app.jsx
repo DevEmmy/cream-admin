@@ -64,6 +64,31 @@ export const getListOfUsers = async ()=>{
     return response
 }
 
+export const getVisitors = async ()=>{
+    let response;
+    await axiosConfig.get("/analytics/aggregated")
+    .then(resp => {
+        response = resp.data
+
+
+    })
+    
+    return [
+        {
+            title:"Daily Visitors",
+            value: response.dailyVisits
+        },
+        {
+            title: "Weekly Visitors",
+            value: response.weeklyVisits
+        },
+        {
+            title: "Monthly Visitors",
+            value: response.monthlyVisits
+        }
+    ]
+}
+
 export const searchUserByName = ()=>{
 
 }

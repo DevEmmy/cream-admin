@@ -13,20 +13,28 @@ import {
     ChevronDown
   } from "heroicons-react"
 import Board from './Board'
-import { getAdminDetails } from '@/requests/app'
+import { getAdminDetails, getVisitors } from '@/requests/app'
 
 const Overview = () => {
 
 
   const [data, setData] = useState([])
+  const [visitors, setVisitors] = useState([])
 
   const fetchData = getAdminDetails()
+  const fetchVisitors = getVisitors()
+
 
   useEffect(()=>{
     fetchData.then(resp => {
-      console.log(resp)
       setData(resp)
     })
+
+    fetchVisitors.then(resp => {
+      console.log(resp)
+      setVisitors(resp)
+    })
+
   }, [])
 
   return (
@@ -43,6 +51,23 @@ const Overview = () => {
                     )
                 })
             }
+        </div>
+
+        <div className='my-10'>
+            <h2 className='py-6 '>Visitors</h2>
+            <div className="data grid grid-cols-3 gap-6">
+            {   
+                visitors.map((imp, i)=>{
+                    return(
+                        <div className='flex rounded-md flex-col bg-white shadow-md p-10 border-2 border-gray-300'>
+                            <p>{imp.title}</p>
+                            <p className='text-[40px] font-bold'>{imp.value}</p>
+                        </div>
+                    )
+                })
+            }
+            </div>
+           
         </div>
 
         <div className='my-10'>
