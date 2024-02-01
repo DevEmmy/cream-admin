@@ -6,21 +6,26 @@ const axiosConfig = axios.create({
 
 
 export const getAdminDetails = async ()=>{
-    let lOfUsers = await getListOfUsers()
-    
+    let response;
+    await axiosConfig.get("/users/admin/details")
+    .then(resp => {
+        response = resp.data
+    })
+
+    console.log(response)
 
     return  [
         {
             baseText: "Total Users",
-            value: lOfUsers.length
+            value: response.users
         },
         {
             baseText: "Total Buyers",
-            value: "50"
+            value: response.buyers
         },
         {
             baseText: "Total Listings",
-            value: "1,500"
+            value: response.totalListings
         },
         {
             baseText: "Total Requests",
@@ -69,7 +74,6 @@ export const getVisitors = async ()=>{
     await axiosConfig.get("/analytics/aggregated")
     .then(resp => {
         response = resp.data
-
 
     })
     

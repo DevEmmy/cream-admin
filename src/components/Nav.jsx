@@ -4,7 +4,7 @@ import Overview from './Overview';
 import Users from './Users';
 import Listings from './Listings';
 
-const Nav = ({setComponent}) => {
+const   Nav = ({setComponent}) => {
 
     const [active, setActive] = useState(0)
 
