@@ -1,0 +1,46 @@
+{
+  "name": "cream",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "13.4.17",
+    "axios": "^1.5.0",
+    "fetch-node": "^0.0.1",
+    "formik": "^2.4.4",
+    "heroicons-react": "^1.4.1",
+    "ldrs": "^1.0.1",
+    "net": "^1.0.2",
+    "next": "13.4.17",
+    "node-fetch": "^2.6.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-file-base64": "^1.0.3",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.10.1",
+    "react-markdown": "^9.0.1",
+    "react-multi-carousel": "^2.8.4",
+    "react-query": "^3.39.3",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.15.0",
+    "react-timeago": "^7.2.0",
+    "react-toastify": "^9.1.3",
+    "spinners-react": "^1.0.7",
+    "styled-components": "^6.0.8",
+    "sweetalert2": "^11.9.0",
+    "tls": "^0.0.1",
+    "use-local-storage": "^3.0.0"
+  },
+  "devDependencies": {
+    "@gradio/client": "^0.5.1",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28",
+    "tailwindcss": "^3.3.3",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
