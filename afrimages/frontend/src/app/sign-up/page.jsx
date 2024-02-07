@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { RiGoogleFill } from 'react-icons/ri'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import {continueWithGoogle, signUp} from "../../request"
 
 const page = () => {
@@ -79,12 +80,16 @@ const page = () => {
 
                 <p>OR</p>
 
-                <div className='set-3 border border-black p-3 rounded-lg w-full justify-center cursor-pointer' onClick={google}>
-                    <RiGoogleFill />
-                    <p>
-                        Sign up with Google
-                    </p>
-                </div>
+                <GoogleOAuthProvider clientId="<your_client_id>">
+                    <div className='set-3 border border-black p-3 rounded-lg w-full justify-center cursor-pointer' onClick={google}>
+                        <RiGoogleFill />
+                        <p>
+                            Sign up with Google
+                        </p>
+                    </div>
+                </GoogleOAuthProvider>;
+
+                
             </div>
 
 

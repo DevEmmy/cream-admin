@@ -1,4 +1,5 @@
 import { Montserrat, Lato, Nunito, Poppins } from 'next/font/google';
+import { Toaster } from 'react-hot-toast'
 // import store from "@/store/store"
 
 import './globals.css';
@@ -48,6 +49,7 @@ export default function RootLayout({
                 <main className='max-w-[1440px] mx-auto overflow-hidden'>
                     {children}
                 </main>
+                <Toaster />
             </body>
         </html>
     );

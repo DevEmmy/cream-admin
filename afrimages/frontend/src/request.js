@@ -1,4 +1,6 @@
 import axios from "axios";
+import { save } from "./localStorageServices";
+import { toastError, toastSuccess } from "./toaster";
 
 const axiosConfig = axios.create({
     baseURL: "https://afrimages.onrender.com/api/v1",
@@ -10,20 +12,30 @@ const axiosConfig = axios.create({
 export const signUp = async (data)=>{
    await axiosConfig.post("/auth/register", data)
     .then((resp) => {
-        console.log(resp)
+        let data = resp.data;
+        save("user", data.user)
+        save("token", data.token)
+        toastSuccess("Signed Up Successfully")
+
+        window.location.href = "/"
     })
     .catch((err)=>{
-        console.log(err)
+        toastError(err.response.data.error)
     })
 }
 
 export const signIn = async (data)=>{
    await axiosConfig.post("/auth/login", data )
     .then((resp) => {
-        console.log(resp)
+        let data = resp.data;
+        save("user", data.user)
+        save("token", data.token)
+        toastSuccess("Logged In Successfully")
+
+        window.location.href = "/"
     })
     .catch((err)=>{
-        console.log(err)
+        toastError(err.response.data.error)
     })
 }
 

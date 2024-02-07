@@ -3,6 +3,7 @@ import { signIn } from '@/request';
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { RiGoogleFill } from 'react-icons/ri'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const page = () => {
     const [email, setEmail] = useState("");
@@ -56,12 +57,14 @@ const page = () => {
 
                 <p>OR</p>
 
-                <div className='set-3 border border-black p-3 rounded-lg w-full justify-center cursor-pointer'>
-                    <RiGoogleFill />
-                    <p>
-                        Sign in with Google
-                    </p>
-                </div>
+                <GoogleOAuthProvider clientId="<your_client_id>">
+                    <div className='set-3 border border-black p-3 rounded-lg w-full justify-center cursor-pointer'>
+                        <RiGoogleFill />
+                        <p>
+                            Sign in with Google
+                        </p>
+                    </div>
+                </GoogleOAuthProvider>
             </div>
 
 
