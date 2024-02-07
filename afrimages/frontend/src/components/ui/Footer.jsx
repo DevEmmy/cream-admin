@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { RiFacebookLine, RiInstagramLine, RiTwitterLine } from 'react-icons/ri';
 
 const Footer = () => {
@@ -98,9 +99,11 @@ const Footer = () => {
 
             <p className='text-white'>Get exclusive updates just for you</p>
 
+            <Link href={"/sign-up"}>
             <div className='bg-orange800 text-white py-3 px-6 text-[0.8em] rounded-md w-fit cursor-pointer'>
               Sign Up
             </div>
+            </Link>
           </div>
         </div>
       </div>

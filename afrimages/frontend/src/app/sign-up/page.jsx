@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { RiGoogleFill } from 'react-icons/ri'
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import {continueWithGoogle, signUp} from "../../request"
 
 const page = () => {
@@ -10,7 +10,7 @@ const page = () => {
     const [password, setPassword] = useState("")
     const [firstName, setFname] = useState("")
     const [lastName, setLname] = useState("")
-
+    const [loading, setLoading] = useState(false)
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -30,6 +30,7 @@ const page = () => {
 
     const submitForm = (e)=>{
         e.preventDefault()
+        setLoading(true)
         let data = {email, firstName, lastName, password};
         signUp(data)
     }
@@ -72,7 +73,14 @@ const page = () => {
                     <input type="password" id="password" value={password} onChange={handlePassword}/>
                 </div> 
 
-                <button onClick={submitForm} className='bg-orange800 text-white rounded-lg w-full p-3'>Sign Up</button>
+                <button onClick={submitForm} className='bg-orange800 text-white rounded-lg w-full p-4'>
+                {
+                        loading ?
+                        <Loader />
+                        :
+                        "Sign Up"
+                    }
+                </button>
             </form>
 
             <div className='set-3 flex-col pt-5'>
@@ -80,14 +88,23 @@ const page = () => {
 
                 <p>OR</p>
 
-                <GoogleOAuthProvider clientId="<your_client_id>">
+                {/* <GoogleOAuthProvider clientId="<your_client_id>">
                     <div className='set-3 border border-black p-3 rounded-lg w-full justify-center cursor-pointer' onClick={google}>
                         <RiGoogleFill />
                         <p>
                             Sign up with Google
                         </p>
                     </div>
-                </GoogleOAuthProvider>;
+                </GoogleOAuthProvider>; */}
+
+                <GoogleLogin
+                    onSuccess={credentialResponse => {
+                        console.log(credentialResponse);
+                    }}
+                    onError={() => {
+                        console.log('Login Failed');
+                    }}
+                />;
 
                 
             </div>

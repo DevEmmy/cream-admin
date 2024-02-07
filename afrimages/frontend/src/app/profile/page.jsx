@@ -1,11 +1,14 @@
+"use client"
 import Footer from '@/components/ui/Footer'
 import MyImage from '@/components/ui/MyImage'
 import Navbar from '@/components/ui/Navbar'
 import Image from 'next/image'
 import React from 'react'
 import { RiShareFill } from 'react-icons/ri'
+import useLocalStorage from 'use-local-storage'
 
 const page = () => {
+  const [user, setUser] = useLocalStorage("user", null)
 
   const data = [
     {
@@ -95,18 +98,18 @@ const page = () => {
   // ]
   return (
     <div className='bg-gray-50'>
-        <Navbar />
+        <Navbar active={"p"}/>
 
         <div className=" mt-[65px]">
-          <div className="cover w-full h-[30vh] md:h-[200px]">
+          <div className="cover w-full h-[30vh] md:h-[180px]">
             <Image src="/./banner.png" alt="" width={0} height={0} className='w-full h-full object-cover' unoptimized/>
           </div>
 
           <div className="details flex md:flex-col md:items-start justify-between items-center px-xPadding -mt-[45px] md:-mt-[30px]">
             <div className='flex gap-5 justify-between items-center'>
-            <Image width={0} height={0} src={"/./bb.jpeg"} alt='profile picture' className='w-[170px] md:w-[150px] md:h-[150px] h-[170px] rounded-full border-[5px] border-white object-cover' unoptimized/>
+            <Image width={0} height={0} src={user.profilePicture} alt='profile picture' className='w-[170px] md:w-[140px] md:h-[140px] h-[170px] rounded-full border-[5px] border-white object-cover' unoptimized/>
               <div>
-                <h2 className='font-[600] text-md'>Dammy</h2>
+                <h2 className='font-[600] text-md'>{user.firstName + " " + user.lastName}</h2>
                 <p>@dammy410</p>
               </div>
             </div>
@@ -117,7 +120,7 @@ const page = () => {
                 <p>Share Profile</p>
               </div>
 
-              <div className='flex items-center gap-2 bg-orange800 text-white py-3 px-5 rounded-md cursor-pointer'>
+              <div className='flex items-center gap-2 bg-orange800 border-2 border-orange800 text-white py-3 px-5 rounded-md cursor-pointer'>
                 <p>Edit Profile</p>
               </div>
             </div>

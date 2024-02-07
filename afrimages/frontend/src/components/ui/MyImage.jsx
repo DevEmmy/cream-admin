@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { ImageInterface } from '../Interfaces/ImageInterface'
 import { RiAddLine, RiDownload2Fill, RiHeart2Line } from 'react-icons/ri'
 import Link from 'next/link'
 

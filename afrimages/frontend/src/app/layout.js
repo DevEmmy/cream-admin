@@ -1,5 +1,6 @@
 import { Montserrat, Lato, Nunito, Poppins } from 'next/font/google';
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 // import store from "@/store/store"
 
 import './globals.css';
@@ -46,9 +47,12 @@ export default function RootLayout({
                 {/* <Provider store={store}> */}
 
                 {/* </Provider> */}
-                <main className='max-w-[1440px] mx-auto overflow-hidden'>
+                <GoogleOAuthProvider clientId="788782201642-oatf2dtiu991mm809kvejs308ufs4919.apps.googleusercontent.com">
+                    <main className='max-w-[1440px] mx-auto overflow-hidden'>
                     {children}
                 </main>
+                </GoogleOAuthProvider>
+                
                 <Toaster />
             </body>
         </html>

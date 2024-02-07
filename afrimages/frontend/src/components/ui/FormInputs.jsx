@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import infoIcon from '@/public/svg/info.svg';
+import infoIcon from '@/../public/svg/info.svg';
 
 export function InputText({ label, name, onChange }) {
     return (

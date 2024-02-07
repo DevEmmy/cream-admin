@@ -11,19 +11,19 @@ import {
 
 import { FormButton } from '@/components/ui/FormButtons';
 
-import videoIcon from '@/public/svg/video.svg';
-import imageIcon from '@/public/svg/image.svg';
-import collectionIcon from '@/public/svg/collection.svg';
-import uploadIcon from '@/public/svg/upload.svg';
-import eyeIcon from '@/public/svg/eye.svg';
-import lockIcon from '@/public/svg/lock.svg';
+// import videoIcon from '@/public/svg/video.svg';
+import imageIcon from '@/../public/svg/image.svg';
+// import collectionIcon from '@/public/svg/collection.svg';
+import uploadIcon from '@/../public/svg/upload.svg'
+import eyeIcon from '@/../public/svg/eye.svg';
+import lockIcon from '@/../public/svg/lock.svg';
 import Navbar from '@/components/ui/Navbar';
 import { HiPlus, HiX } from 'react-icons/hi';
 import FileBase64 from 'react-file-base64';
 
 export default function Upload() {
     const [active, setActive] = useState(false);
-    const [selectedFile, setSelectedFile] = useState<any>(null);
+    const [selectedFile, setSelectedFile] = useState(null);
     const [formData, setFormData] = useState({
         userTitle: '',
         userDetails: '',
@@ -37,7 +37,7 @@ export default function Upload() {
     });
     const [img, setImage] = useState()
 
-    const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileInputChange = (e) => {
         const file = e.target.files && e.target.files[0];
 
         // Set the selected file to state
@@ -46,33 +46,33 @@ export default function Upload() {
         setActive(true);
     };
 
-    const handleInputChange = (name: string, value: string | boolean) => {
+    const handleInputChange = (name, value) => {
         setFormData({
             ...formData,
             [name]: value,
         });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const data = {...formData, image: img}
         console.log('Form Submitted');
     };
 
-    const [key, setKey] = useState<string>("")
+    const [key, setKey] = useState("")
 
-    const handleKey = (e: any)=>{
+    const handleKey = (e)=>{
         setKey(e.target.value)
     }
-    const [keywords, setKeywords] = useState<any>([]);
+    const [keywords, setKeywords] = useState([]);
 
-    const handleKeyword = (k: string)=>{
+    const handleKeyword = (k)=>{
         setKey('')
         setKeywords([...keywords, k])
     }
 
-    const removeKeyword = (k: string)=>{
-        let filtered = keywords.filter((key: string) => key != k)
+    const removeKeyword = (k)=>{
+        let filtered = keywords.filter((key) => key != k)
         console.log(filtered)
         setKeywords(filtered)
     }
@@ -130,7 +130,7 @@ export default function Upload() {
                                         id={item.name}
                                         accept={item.accept || undefined}
                                         multiple={item.multiple}
-                                        onDone={(base64: any)=> {setImage(base64); setActive(true)}}
+                                        onDone={(base64)=> {setImage(base64); setActive(true)}}
                                         className='hidden opacity-0 absolute'
                                     />
                                 </label>
@@ -238,7 +238,7 @@ export default function Upload() {
 
                         <div className='flex gap-3 flex-wrap'>
                             {
-                                keywords.map((key: string, i: number)=>{
+                                keywords.map((key, i)=>{
                                     return(
                                         <div className="px-2 py-1 flex gap-1 border items-center border-gray-600 w-fit rounded-md text-[12px] text-gray-600">
                                             {key}
@@ -293,18 +293,18 @@ export default function Upload() {
     );
 }
 
-type InputDisplayProps = {
-    formData: {
-        userDetails: string;
-        userImgCatog: string;
-        userTitle: string;
-        // userVisibility: string;
-        // userLicense: string;
-    };
-    selectedFile: any;
-};
+// type InputDisplayProps = {
+//     formData: {
+//         userDetails: string;
+//         userImgCatog: string;
+//         userTitle: string;
+//         // userVisibility: string;
+//         // userLicense: string;
+//     };
+//     selectedFile: any;
+// };
 
-function InputDisplay({ formData, selectedFile }: InputDisplayProps) {
+function InputDisplay({ formData, selectedFile }) {
     return (
         <section className='bg-white  py-8 px-6 rounded-[10px] flex flex-col justify-end gap-4 md:px-2 md:py-6 lg:gap-2 h-full'>
             <Image

@@ -3,8 +3,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { RiMenu2Line, RiMenu3Line, RiMenu4Line, RiMenu5Line, RiMenuLine, RiSearch2Line } from "react-icons/ri";
 import {HiX} from "react-icons/hi"
+import useLocalStorage from "use-local-storage";
 
 export default function Navbar({ active = 0 }) {
+
+  const [user, setUser] = useLocalStorage("user", null)
   const nav = [
     {
       title: 'Home',
@@ -79,32 +82,66 @@ export default function Navbar({ active = 0 }) {
           </div>
 
           <div className="flex gap-10 flex-col my-3 p-5 justify-end items-end">
-            {
-              nav.map((n, i)=>{
-                return(
-                  <a
-                  href={n.link}
-                  className={active == i ? 'font-bold text-orange800' : ' text-white'}
-                  key={i}
-                >
-                  {n.title}
-                </a>
-                )
-              })
-            }
-                <a
-                  href={"/creator"}
-                  className={' text-white'}
-                >
-                  Join Community
+
+              {
+                nav.map((n, i)=>{
+                  return(
+                    <a
+                    href={n.link}
+                    className={active == i ? 'font-bold text-orange800' : ' text-white'}
+                    key={i}
+                  >
+                    {n.title}
+                  </a>
+                  )
+                })
+              }
+
+              {
+                  user &&
+
+                <a href="/profile" className={active == "p" ? 'font-bold text-orange800' : ' text-white'}>
+                  Profile
                 </a>
 
-                <a
-                  href={"/sign-in"}
-                  className={' text-white'}
-                >
-                  Login
-                </a>
+              }
+              {
+                  user ?
+
+                  <>
+                    <a
+                      href={"/upload"}
+                      className={' text-white'}
+                    >
+                      Upload Content
+                    </a>
+
+                  <a
+                    href={"/sign-in"}
+                    className={' text-white'}
+                  >
+                    Log Out
+                  </a>
+                  </>
+
+                  :
+
+                  <>
+                    <a
+                      href={"/creator"}
+                      className={' text-white'}
+                    >
+                      Join Community
+                    </a>
+
+                  <a
+                    href={"/sign-in"}
+                    className={' text-white'}
+                  >
+                    Login
+                  </a>
+                  </>
+                }
           </div>
         </div>
       }
